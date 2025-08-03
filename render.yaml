@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: insuready
+    env: python
+    buildCommand: ""
+    startCommand: gunicorn app:app
+    plan: free
+    region: oregon
+    branch: master
+    autoDeploy: true
