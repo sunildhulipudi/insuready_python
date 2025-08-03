@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Insuready Admin | Dashboard</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin-common.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+
+  <!-- Sidebar -->
+  <aside class="sidebar expanded" id="sidebar">
+    <div class="logo">IR</div>
+    <nav>
+      <a href="/admin/dashboard" class="active"><i class="fas fa-chart-line"></i><span>Dashboard</span></a>
+      <a href="/leads"><i class="fas fa-user-plus"></i><span>Leads</span></a>
+      <a href="/referrals"><i class="fas fa-users"></i><span>Referrals</span></a>
+      <a href="/logout" class="logout-link"><i class="fas fa-sign-out-alt"></i><span>Logout</span></a>
+    </nav>
+    <button id="toggleSidebar" title="Toggle Sidebar"><i class="fas fa-bars"></i></button>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    
+    <!-- Header -->
+    <header class="header">
+      <div class="header-title">
+        <h1>Admin Dashboard</h1>
+        <p class="tagline">Control panel for monitoring leads & referrals</p>
+      </div>
+    </header>
+
+    <!-- Statistics -->
+    <section class="stats-grid">
+      <div class="stat-card gradient-blue">
+        <h2>Total Leads</h2>
+        <p>{{ leads_count }}</p>
+      </div>
+      <div class="stat-card gradient-green">
+        <h2>Total Referrals</h2>
+        <p>{{ referrals_count }}</p>
+      </div>
+    </section>
+
+    <!-- Search and Table -->
+    <section class="search-and-table">
+      <div class="search-box">
+        <input type="text" id="searchInput" placeholder="Search by name, email, phone..." />
+      </div>
+
+      <div class="table-wrapper">
+        <table id="dataTable">
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Role</th>
+              <th>Email</th>
+              <th>Phone</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for user in users %}
+            <tr>
+              <td>{{ user.name }}</td>
+              <td>{{ user.role }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.phone }}</td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    const searchInput = document.getElementById('searchInput');
+    const rows = document.querySelectorAll('#dataTable tbody tr');
+
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase();
+      rows.forEach(row => {
+        const cells = Array.from(row.children);
+        const matches = cells.some(cell =>
+          cell.textContent.toLowerCase().includes(query)
+        );
+        row.style.display = matches ? '' : 'none';
+      });
+    });
+
+    // Sidebar Toggle Logic
+    const sidebar = document.getElementById("sidebar");
+    const toggleBtn = document.getElementById("toggleSidebar");
+
+    toggleBtn.addEventListener("click", () => {
+      sidebar.classList.toggle("compact");
+      sidebar.classList.toggle("expanded");
+    });
+  </script>
+
+</body>
+</html>

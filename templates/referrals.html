@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Insuready | Referrals</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='admin-common.css') }}">
+  <script defer>
+    function toggleSidebar() {
+      const sidebar = document.querySelector('.sidebar');
+      const body = document.body;
+      sidebar.classList.toggle('collapsed');
+      body.classList.toggle('sidebar-collapsed');
+    }
+  </script>
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="logo">IR</div>
+    <nav>
+      <a href="/admin/dashboard" class="nav-link">
+        <span class="icon">🏠</span>
+        <span class="label">Dashboard</span>
+      </a>
+      <a href="/leads" class="nav-link">
+        <span class="icon">🧾</span>
+        <span class="label">Leads</span>
+      </a>
+      <a href="/referrals" class="nav-link active">
+        <span class="icon">👥</span>
+        <span class="label">Referrals</span>
+      </a>
+      <a href="/logout" class="nav-link">
+        <span class="icon">🚪</span>
+        <span class="label">Logout</span>
+      </a>
+    </nav>
+    <button class="toggle-btn" onclick="toggleSidebar()">⏩</button>
+  </aside>
+
+  <main class="main-content">
+    <header class="main-header">
+      <h1>Referral Management</h1>
+    </header>
+
+    <div class="search-export-container">
+      <input type="text" class="global-search" id="searchReferralInput" placeholder="Search by name, email, phone, or code..." />
+      <button class="export-btn" id="downloadReferralCSV">Download CSV</button>
+    </div>
+
+    <section class="table-section">
+      <table id="referralTable">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Referral Code</th>
+            <th>Location</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for referral in referrals %}
+          <tr>
+            <td>{{ referral.name }}</td>
+            <td>{{ referral.email }}</td>
+            <td>{{ referral.phone }}</td>
+            <td>{{ referral.referral_code }}</td>
+            <td>{{ referral.location }}</td>
+            <td>{{ referral.date }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </section>
+  </main>
+
+  <script>
+    const searchInput = document.getElementById('searchReferralInput');
+    const table = document.getElementById('referralTable');
+    const rows = table.getElementsByTagName('tr');
+
+    searchInput.addEventListener('input', function () {
+      const filter = this.value.toLowerCase();
+      for (let i = 1; i < rows.length; i++) {
+        const cells = rows[i].getElementsByTagName('td');
+        const show = [...cells].some(cell => cell.textContent.toLowerCase().includes(filter));
+        rows[i].style.display = show ? '' : 'none';
+      }
+    });
+
+    document.getElementById('downloadReferralCSV').addEventListener('click', function () {
+      const rows = document.querySelectorAll('#referralTable tbody tr');
+      let csvContent = 'Name,Email,Phone,Referral Code,Location,Date\n';
+
+      rows.forEach(row => {
+        if (row.style.display === 'none') return;
+        const cells = row.querySelectorAll('td');
+        const rowData = Array.from(cells).map(cell => `"${cell.textContent.trim()}"`);
+        csvContent += rowData.join(',') + '\n';
+      });
+
+      const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+      const link = document.createElement('a');
+      link.href = URL.createObjectURL(blob);
+      link.download = 'referrals.csv';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    });
+  </script>
+
+</body>
+</html>

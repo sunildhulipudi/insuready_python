@@ -1,0 +1,748 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Insuready | Insurance Made Easy</title>
+
+  <!-- Styles -->
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet" />
+</head>
+<body>
+
+<!-- ✅ NAVBAR -->
+<header class="navbar" data-aos="slide-down">
+  <div class="nav-container">
+    <div class="logo">
+      <img src="your-logo.png" alt="Insuready Logo" />
+    </div>
+    <nav>
+      <ul class="nav-menu">
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Services</a></li>
+		<li><a href="#" class="open-referral" class="openReferralModal">Refer & Earn</a></li>
+        <li><a href="#">Contact</a></li>
+		<li><a href="#" class="btn btn-primary small" id="openQuoteModalNav">Get a Quote</a></li>
+
+      </ul>
+    </nav>
+    <div class="hamburger" id="hamburger">&#9776;</div>
+  </div>
+</header>
+
+<!-- ✅ HERO SECTION -->
+<section class="hero" data-aos="zoom-out-up">
+  <div class="hero-container">
+    <h1 class="hero-title">
+      Insurance Made Easy for <span id="typed-word"></span>
+    </h1>
+    <p class="hero-subtext">
+      Get the right insurance at the right price — backed by real experts who put your needs first.
+    </p>
+    <div class="hero-buttons">
+	  <a href="#" class="btn btn-primary" id="openQuoteModal">Book a Callback</a>
+	  
+
+      <a href="#" class="btn btn-outline">WhatsApp Us</a>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ WHY INSUREADY SECTION -->
+<section class="why-insuready-section">
+  <h2 class="why-title" data-aos="fade-up">Why Choose Insuready?</h2>
+
+  <div class="why-grid">
+    <div class="why-item" data-aos="fade-up">
+      <div class="why-icon"><i class="fas fa-shield-alt"></i></div>
+      <h3>Reliable Protection</h3>
+      <p>Insurance you can count on, with clarity and commitment.</p>
+    </div>
+
+    <div class="why-item" data-aos="fade-up" data-aos-delay="100">
+      <div class="why-icon"><i class="fas fa-rupee-sign"></i></div>
+      <h3>Affordable Plans</h3>
+      <p>We design plans that protect you without breaking your budget.</p>
+    </div>
+
+    <div class="why-item" data-aos="fade-up" data-aos-delay="200">
+      <div class="why-icon"><i class="fas fa-user-friends"></i></div>
+      <h3>Personal Support</h3>
+      <p>Real people, ready to guide you at every step of your journey.</p>
+    </div>
+
+    <div class="why-item" data-aos="fade-up" data-aos-delay="300">
+      <div class="why-icon"><i class="fas fa-bolt"></i></div>
+      <h3>Fast Claims</h3>
+      <p>Quick, hassle-free claims with full transparency.</p>
+    </div>
+
+    <div class="why-item" data-aos="fade-up" data-aos-delay="400">
+      <div class="why-icon"><i class="fas fa-mobile-alt"></i></div>
+      <h3>Easy Access</h3>
+      <p>Quotes, updates, and help — all just a tap away.</p>
+    </div>
+
+    <div class="why-item" data-aos="fade-up" data-aos-delay="500">
+      <div class="why-icon"><i class="fas fa-globe-asia"></i></div>
+      <h3>Pan-India Coverage</h3>
+      <p>Serving families across India — cities, towns, and everywhere in between.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ✅ INSURANCE TYPES CAROUSEL SECTION -->
+<section class="insurance-slider-section">
+  <h2 class="services-title" data-aos="fade-up">
+    We Help You with Every Kind of Insurance
+  </h2>
+  <p class="services-subtext" data-aos="fade-up" data-aos-delay="50">
+    Whatever you care about, we make sure it’s covered — the simple, stress-free way.
+  </p>
+
+  <div class="slider-container" id="carousel">
+    <div class="slider-track" id="carousel-track">
+      <!-- Example Insurance Cards -->
+      <div class="insurance-card"><div class="icon"><i class="fas fa-notes-medical"></i></div><h3>Health Insurance</h3><p>Protect your medical expenses and hospital bills.</p><a href="#">Learn More</a></div>
+      <div class="insurance-card"><div class="icon"><i class="fas fa-user-shield"></i></div><h3>Life Insurance</h3><p>Secure your family’s future with trusted plans.</p><a href="#">Learn More</a></div>
+      <div class="insurance-card"><div class="icon"><i class="fas fa-car"></i></div><h3>Vehicle Insurance</h3><p>Coverage for cars, bikes, and electric vehicles.</p><a href="#">Learn More</a></div>
+      <div class="insurance-card"><div class="icon"><i class="fas fa-home"></i></div><h3>Property Insurance</h3><p>Protect your home, office, and valuable spaces.</p><a href="#">Learn More</a></div>
+      <div class="insurance-card"><div class="icon"><i class="fas fa-plane-departure"></i></div><h3>Travel Insurance</h3><p>Worry-free journeys with global travel protection.</p><a href="#">Learn More</a></div>
+      <div class="insurance-card"><div class="icon"><i class="fas fa-heartbeat"></i></div><h3>Critical Illness</h3><p>Cancer, heart and major illness coverage.</p><a href="#">Learn More</a></div>
+      <div class="insurance-card"><div class="icon"><i class="fas fa-ship"></i></div><h3>Marine Insurance</h3><p>Secure goods in sea or land transportation.</p><a href="#">Learn More</a></div>
+      <div class="insurance-card"><div class="icon"><i class="fas fa-seedling"></i></div><h3>Crop Insurance</h3><p>Compensation for crop loss and weather impact.</p><a href="#">Learn More</a></div>
+    </div>
+
+    <div class="carousel-dots" id="carousel-dots"></div>
+  </div>
+</section>
+
+
+
+
+<!-- ✅ HOW IT WORKS SECTION -->
+<section class="how-it-works-section">
+  <h2 class="how-title" data-aos="fade-up">How It Works</h2>
+  <p class="how-subtext" data-aos="fade-up" data-aos-delay="50">
+    From first click to complete coverage — here's how we simplify insurance for you.
+  </p>
+
+  <div class="how-grid">
+    <div class="how-step" data-aos="zoom-in">
+      <div class="how-icon"><i class="fas fa-edit"></i></div>
+      <h3>Fill Your Details</h3>
+      <p>Submit a quick form telling us what insurance you need — whether it's health, life, vehicle, or more.</p>
+    </div>
+
+    <div class="how-step" data-aos="zoom-in" data-aos-delay="100">
+      <div class="how-icon"><i class="fas fa-phone-volume"></i></div>
+      <h3>Get a Call from Our Expert</h3>
+      <p>Our insurance advisor will personally call you, understand your needs, and suggest the best options.</p>
+    </div>
+
+    <div class="how-step" data-aos="zoom-in" data-aos-delay="200">
+      <div class="how-icon"><i class="fas fa-shield-heart"></i></div>
+      <h3>You’re Covered — Instantly</h3>
+      <p>Once you pick a plan, we handle the paperwork and get you insured — fast, simple, and transparent.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ✅ REFERRAL TEAM SECTION -->
+<section class="referral-team-section">
+  <h2 class="refer-title" data-aos="fade-up">Join Our Referral Program</h2>
+  <p class="refer-subtext" data-aos="fade-up" data-aos-delay="50">
+    Become a part of our team. Share your code. Earn commissions when your referrals purchase a policy.
+  </p>
+
+  <div class="referral-split" data-aos="fade-up" data-aos-delay="100">
+    <!-- Left: Become a Referrer -->
+    <div class="referral-box">
+	
+      <h3><i class="fas fa-user-plus"></i> Become a Partner</h3>
+      <p>Register to get your own referral code. Start building your insurance team and earn lifetime benefits every time someone uses your code to buy a policy.</p>
+<a href="#" class="open-referral" class="btn openReferralModal">Start Earning</a>
+    </div>
+
+    <!-- Right: Got a Code? -->
+    <div class="referral-box light">
+      <h3><i class="fas fa-tags"></i> Got a Referral Code?</h3>
+      <p>If you’ve been referred by someone, make sure to enter their code while requesting a quote. They’ll earn a reward when you complete your purchase!</p>
+      <a href="#quote" class="btn btn-outline">Use Referral Code</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ✅ TESTIMONIAL SECTION -->
+<section class="testimonial-section">
+  <h2 class="testimonial-title" data-aos="fade-up">What Our Customers Say</h2>
+  <p class="testimonial-subtext" data-aos="fade-up" data-aos-delay="50">
+    Real stories from real people who found insurance the easy way.
+  </p>
+
+  <div class="testimonial-slider" id="testimonialSlider">
+    <div class="testimonial-card active">
+      <p class="quote">“Insuready made it so easy to understand my policy and the service was excellent.”</p>
+      <div class="author">— Riya Mehta <span>• Mumbai</span></div>
+    </div>
+    <div class="testimonial-card">
+      <p class="quote">“They guided me step-by-step and helped me get the best plan for my family.”</p>
+      <div class="author">— Ankit Sharma <span>• Delhi</span></div>
+    </div>
+    <div class="testimonial-card">
+      <p class="quote">“Super smooth process, clear advice and instant support. Highly recommended!”</p>
+      <div class="author">— Sangeeta Rao <span>• Bengaluru</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ✅ ULTRA-PREMIUM FOOTER -->
+<footer class="ultra-footer">
+  <div class="footer-glass">
+    <div class="footer-grid">
+
+      <!-- Brand -->
+      <div class="footer-block brand">
+        <img src="your-logo.png" alt="Insuready Logo" class="footer-logo" />
+        <p class="footer-desc">Empowering India with smarter, faster, and more affordable insurance solutions.</p>
+      </div>
+
+      <!-- Navigation -->
+      <div class="footer-block">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Refer & Earn</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact -->
+      <div class="footer-block">
+        <h4>Contact</h4>
+        <p><i class="fas fa-phone-alt"></i> +91 98765 43210</p>
+        <p><i class="fas fa-envelope"></i> support@insuready.in</p>
+        <p><i class="fas fa-map-marker-alt"></i> Hyderabad, India</p>
+      </div>
+
+      <!-- Social -->
+      <div class="footer-block">
+        <h4>Connect</h4>
+        <div class="footer-social">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-whatsapp"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
+      </div>
+
+    </div>
+    <div class="footer-bottom">
+<p>© 2025 <strong>Insuready</strong>. Crafted in India. Securing futures.</p>
+    </div>
+  </div>
+</footer>
+
+
+
+
+
+<!-- ✅ Script -->
+<script>
+  const track = document.getElementById("carousel-track");
+  const carousel = document.getElementById("carousel");
+  const dotsContainer = document.getElementById("carousel-dots");
+  const cardsPerSlide = 3;
+  const cards = track.children;
+  const totalSlides = Math.ceil(cards.length / cardsPerSlide);
+  let currentSlide = 0;
+  let autoSlideInterval;
+
+  function updateCarousel() {
+    const slideWidth = carousel.offsetWidth;
+    track.style.transform = `translateX(-${slideWidth * currentSlide}px)`;
+    [...dotsContainer.children].forEach((dot, index) => {
+      dot.classList.toggle("active", index === currentSlide);
+    });
+  }
+
+  function goToSlide(index) {
+    currentSlide = index % totalSlides;
+    updateCarousel();
+  }
+
+  for (let i = 0; i < totalSlides; i++) {
+    const dot = document.createElement("div");
+    dot.classList.add("carousel-dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => goToSlide(i));
+    dotsContainer.appendChild(dot);
+  }
+
+  function startAutoSlide() {
+    autoSlideInterval = setInterval(() => {
+      goToSlide((currentSlide + 1) % totalSlides);
+    }, 4000);
+  }
+
+  function stopAutoSlide() {
+    clearInterval(autoSlideInterval);
+  }
+
+  carousel.addEventListener("mouseenter", stopAutoSlide);
+  carousel.addEventListener("mouseleave", startAutoSlide);
+
+  window.addEventListener("load", () => {
+    updateCarousel();
+    startAutoSlide();
+  });
+
+  window.addEventListener("resize", updateCarousel);
+</script>
+
+
+
+<!-- ✅ TYPING SCRIPT -->
+<script>
+  const words = ["Health", "Life", "Vehicle", "Travel", "Property", "Gadget"];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const typingSpeed = 100;
+  const erasingSpeed = 60;
+  const delayBetweenWords = 1500;
+
+  function typeEffect() {
+    const element = document.getElementById("typed-word");
+    const currentWord = words[wordIndex];
+
+    if (!element) return;
+
+    if (isDeleting) {
+      element.textContent = currentWord.substring(0, charIndex--);
+    } else {
+      element.textContent = currentWord.substring(0, charIndex++);
+    }
+
+    if (!isDeleting && charIndex === currentWord.length + 1) {
+      isDeleting = true;
+      setTimeout(typeEffect, delayBetweenWords);
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      setTimeout(typeEffect, typingSpeed);
+    } else {
+      setTimeout(typeEffect, isDeleting ? erasingSpeed : typingSpeed);
+    }
+  }
+
+  document.addEventListener("DOMContentLoaded", typeEffect);
+</script>
+
+<!-- ✅ AOS Script -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 800,
+    once: false,
+    offset: 50
+  });
+</script>
+
+<!-- ✅ Scroll Reset Script -->
+<script>
+  window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+  };
+</script>
+
+<!-- ✅ Slider Auto Scroll Script -->
+<script>
+  let slider = document.querySelector(".slider-track");
+  let scrollAmount = 0;
+
+  function autoSlide() {
+    scrollAmount += 300;
+    if (scrollAmount >= slider.scrollWidth - slider.clientWidth) {
+      scrollAmount = 0;
+    }
+    slider.scrollTo({ left: scrollAmount, behavior: "smooth" });
+  }
+
+  setInterval(autoSlide, 4000); // every 4 sec
+</script>
+
+<script>
+  const testimonials = document.querySelectorAll(".testimonial-card");
+  let current = 0;
+
+  function showNextTestimonial() {
+    testimonials[current].classList.remove("active");
+    current = (current + 1) % testimonials.length;
+    testimonials[current].classList.add("active");
+  }
+
+  setInterval(showNextTestimonial, 5000); // Rotate every 5 sec
+</script>
+
+
+<!-- Add this inside your <body> near the end of your main HTML -->
+<div class="modal-overlay" id="quoteModal">
+  <div class="modal-content animated-modal">
+    <span class="close-btn" id="closeQuoteModal">&times;</span>
+    <form class="quote-form" action="/submit" method="POST">
+  <div class="form-row">
+    <select name="insurance_type" required>
+      <option value="">Insurance Type</option>
+      <option>Health Insurance</option>
+      <option>Life Insurance</option>
+      <option>Vehicle Insurance</option>
+      <option>Travel Insurance</option>
+      <option>Property Insurance</option>
+      <option>Gadget Insurance</option>
+      <option>Crop Insurance</option>
+      <option>Marine Insurance</option>
+      <option>Critical Illness</option>
+    </select>
+    <input type="text" name="name" placeholder="Full Name" required />
+  </div>
+
+  <div class="form-row gender-row">
+    <label><input type="radio" name="gender" value="male" checked> Male</label>
+    <label><input type="radio" name="gender" value="female"> Female</label>
+  </div>
+
+  <div class="form-row">
+    <input type="text" name="city" placeholder="City" required />
+    <input type="email" name="email" placeholder="Email Address" required />
+  </div>
+
+  <div class="form-row">
+    <input type="tel" name="phone" placeholder="Phone Number" required />
+  </div>
+
+  <textarea name="notes" placeholder="Tell us your requirement..." required></textarea>
+
+  <div class="form-row">
+    <input type="text" name="referral_code" placeholder="Referral Code (optional)" />
+  </div>
+
+  <input type="hidden" name="source" value="quote" />
+  <button type="submit" class="submit-btn">Submit</button>
+</form>
+  </div>
+</div>
+
+
+<!-- ✅ REFER & EARN MODAL (TRIGGERED FROM NAVBAR, SECTION, FLOATING BUTTON) -->
+<div class="referral-modal-overlay" id="referralModal">
+  <div class="referral-modal-content">
+    <!-- Left side: Slider -->
+    <div class="modal-left">
+      <div class="modal-slide active">
+        <img src="https://cdn-icons-png.flaticon.com/512/584/584296.png" alt="Step 1">
+        <h3>Refer Friends</h3>
+        <p>Invite friends to get insured using your unique referral code.</p>
+      </div>
+      <div class="modal-slide">
+        <img src="https://cdn-icons-png.flaticon.com/512/1077/1077012.png" alt="Step 2">
+        <h3>They Join</h3>
+        <p>When they sign up with your code and buy, they get rewards.</p>
+      </div>
+      <div class="modal-slide">
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png" alt="Step 3">
+        <h3>You Earn</h3>
+        <p>Earn cashback or gifts for each successful referral.</p>
+      </div>
+    </div>
+
+    <!-- Right side: Form -->
+    <div class="modal-right">
+      <span class="close-referral">&times;</span>
+      <h2>Start Earning</h2>
+      <form class="referral-form" action="/submit" method="POST">
+  <input type="text" name="name" placeholder="Full Name" required />
+  <input type="tel" name="phone" placeholder="Phone Number" required />
+  <input type="email" name="email" placeholder="Email Address" required />
+  <input type="hidden" name="insurance_type" value="N/A" />
+  <input type="hidden" name="notes" value="Referral form - No notes" />
+  <input type="hidden" name="referral_code" value="" />
+  <input type="hidden" name="source" value="referral" />
+  <button type="submit" class="btn">Generate Referral Code</button>
+</form>
+
+    </div>
+  </div>
+</div>
+
+<!-- ✅ REFERRAL JS -->
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const openReferralBtns = document.querySelectorAll('.open-referral');
+    const referralModal = document.getElementById('referralModal');
+    const closeReferralBtn = document.querySelector('.close-referral');
+
+    openReferralBtns.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        referralModal.style.display = 'flex';
+      });
+    });
+
+    closeReferralBtn.addEventListener('click', () => {
+      referralModal.style.display = 'none';
+    });
+
+    window.addEventListener('click', (e) => {
+      if (e.target === referralModal) {
+        referralModal.style.display = 'none';
+      }
+    });
+
+    // Optional: Auto slider (if you want to rotate messages on left)
+    const slides = document.querySelectorAll('.modal-slide');
+    let index = 0;
+    setInterval(() => {
+      slides.forEach(slide => slide.classList.remove('active'));
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 3000);
+  });
+</script>
+
+
+
+
+<!-- JS -->
+<script>
+  const quoteModal = document.getElementById("quoteModal");
+  const openQuoteModal = document.getElementById("openQuoteModal");
+  const closeQuoteModal = document.getElementById("closeQuoteModal");
+  const openQuoteModalNav = document.getElementById("openQuoteModalNav");
+
+	openQuoteModal.addEventListener("click", (e) => {
+	e.preventDefault();
+	quoteModal.style.display = "flex";
+});
+
+openQuoteModalNav.addEventListener("click", (e) => {
+  e.preventDefault();
+  quoteModal.style.display = "flex";
+});
+
+
+  closeQuoteModal.addEventListener("click", () => {
+    quoteModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === quoteModal) {
+      quoteModal.style.display = "none";
+    }
+  });
+</script>
+
+<script>
+  // Modal open & close triggers
+  const referralModal = document.getElementById("referralModal");
+  const openReferralBtns = document.querySelectorAll(".openReferralModal");
+  const closeReferralBtn = document.getElementById("closeReferralModal");
+
+  openReferralBtns.forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      referralModal.style.display = "flex";
+    });
+  });
+
+  closeReferralBtn.addEventListener("click", () => {
+    referralModal.style.display = "none";
+  });
+
+  window.addEventListener("click", (e) => {
+    if (e.target === referralModal) {
+      referralModal.style.display = "none";
+    }
+  });
+
+  // Auto slider logic for left content
+  const slides = document.querySelectorAll(".modal-slide");
+  let currentSlide = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide, i) => {
+      slide.classList.toggle("active", i === index);
+    });
+  }
+
+  function startSlideShow() {
+    setInterval(() => {
+      currentSlide = (currentSlide + 1) % slides.length;
+      showSlide(currentSlide);
+    }, 3500);
+  }
+
+  showSlide(currentSlide);
+  startSlideShow();
+</script>
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const quoteForm = document.querySelector('.quote-form');
+
+  quoteForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+    const formData = new FormData(quoteForm);
+    const name = formData.get('name');
+
+    fetch('/submit', {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => res.text())
+    .then(data => {
+      // ✅ Create overlay
+      const overlay = document.createElement('div');
+      overlay.style.position = 'fixed';
+      overlay.style.top = 0;
+      overlay.style.left = 0;
+      overlay.style.width = '100vw';
+      overlay.style.height = '100vh';
+      overlay.style.background = 'rgba(0,0,0,0.4)';
+      overlay.style.backdropFilter = 'blur(3px)';
+      overlay.style.display = 'flex';
+      overlay.style.justifyContent = 'center';
+      overlay.style.alignItems = 'center';
+      overlay.style.zIndex = '99999';
+
+      // ✅ Popup container
+      const popup = document.createElement('div');
+      popup.style.background = '#fff';
+      popup.style.borderRadius = '16px';
+      popup.style.padding = '30px 40px';
+      popup.style.textAlign = 'center';
+      popup.style.boxShadow = '0 10px 40px rgba(0,0,0,0.2)';
+      popup.style.transform = 'scale(0.9)';
+      popup.style.transition = 'transform 0.3s ease';
+
+      // ✅ Inner content
+      popup.innerHTML = `
+        <div style="font-size: 40px; color: #28a745; margin-bottom: 10px;">✅</div>
+        <h2 style="margin: 0 0 10px;">Thank You, ${name || 'Customer'}!</h2>
+        <p style="font-size: 16px;">Your quote request was submitted successfully.</p>
+      `;
+
+      overlay.appendChild(popup);
+      document.body.appendChild(overlay);
+
+      // 🎯 Animate popup
+      setTimeout(() => {
+        popup.style.transform = 'scale(1)';
+      }, 50);
+
+      // 🧹 Auto-close
+      setTimeout(() => {
+        overlay.remove();
+      }, 3500);
+
+      quoteForm.reset();
+      document.getElementById('quoteModal').style.display = 'none';
+    })
+    .catch(err => {
+      alert("❌ Submission failed. Try again.");
+      console.error(err);
+    });
+  });
+});
+</script>
+
+<!-- ✅ Referral Form AJAX Submission with Code Display and Copy -->
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const referralForm = document.querySelector('.referral-form');
+
+  if (!referralForm) return;
+
+  referralForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const formData = new FormData(referralForm);
+    const name = formData.get('name') || 'Customer';
+
+    fetch('/submit', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(data => {
+      const referralCode = generateReferralCode(name);  // 🔐 Replace if using backend-generated codes
+
+      const popup = document.createElement('div');
+      popup.innerHTML = `
+        <div style="
+          position: fixed;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: #fff;
+          padding: 28px 40px;
+          border-radius: 14px;
+          box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+          z-index: 99999;
+          text-align: center;
+          font-family: 'Poppins', sans-serif;
+          max-width: 90%;
+        ">
+          <h2 style="margin: 0 0 10px;">✅ Thank you, ${name}!</h2>
+          <p style="color: #444;">You're now part of our referral network.</p>
+          <p style="margin-top: 16px; font-weight: 600;">Your Referral Code:</p>
+          <div style="display: flex; justify-content: center; align-items: center; gap: 10px; margin-top: 5px;">
+            <input id="referralCodeField" value="${referralCode}" readonly style="padding: 6px 12px; border: 1px solid #ccc; border-radius: 6px; font-weight: 600;" />
+            <button onclick="copyReferralCode()" style="padding: 6px 12px; background: #007bff; color: white; border: none; border-radius: 6px; cursor: pointer;">Copy</button>
+          </div>
+        </div>
+      `;
+      document.body.appendChild(popup);
+
+      setTimeout(() => popup.remove(), 6000);
+
+      referralForm.reset();
+      document.getElementById('referralModal').style.display = 'none';
+    })
+    .catch(error => {
+      alert("❌ Submission failed!");
+      console.error(error);
+    });
+  });
+
+  // Generate dummy referral code based on name
+  function generateReferralCode(name) {
+    const initials = name.trim().split(" ").map(w => w[0]).join("").toUpperCase();
+    const random = Math.floor(1000 + Math.random() * 9000);
+    return `${initials}${random}`;
+  }
+
+  // Copy to clipboard
+  window.copyReferralCode = function () {
+    const field = document.getElementById("referralCodeField");
+    field.select();
+    field.setSelectionRange(0, 99999);
+    document.execCommand("copy");
+    alert("✅ Code copied to clipboard!");
+  };
+});
+</script>
+
+
+
+</body>
+</html>
